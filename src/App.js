@@ -2,7 +2,7 @@ import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import Home from "./pages/home/Home";
 import Profile from "./pages/profile/Profile";
-import React from "react";
+import React, { useContext } from "react";
 import "./style.scss";
 
 import {
@@ -14,14 +14,18 @@ import {
 import NavBar from "./components/navbar/navbar";
 import LeftBar from "./components/leftBar/leftBar";
 import RightBar from "./components/rightBar/rightBar";
+import { DarkModeContext } from "./context/darkModeContext";
+import { AuthContext } from "./context/authContext";
 
 function App() {
 
-  const currentUser = true;
+  const { currentUser } = useContext(AuthContext);
+  console.log(currentUser);
+  const { darkMode } = useContext(DarkModeContext);
 
   const Layout = () => {
     return (
-      <div className="theme-dark">
+      <div className={`theme-${darkMode ? "dark" : "light"}`}>
         <NavBar />
         <div style={{ display: "flex" }}>
           <LeftBar />
