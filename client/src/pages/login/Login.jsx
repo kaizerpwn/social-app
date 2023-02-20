@@ -1,13 +1,31 @@
 import "./login.scss"
-import { Link } from "react-router-dom"
-import { useContext } from "react"
+import { Link, useNavigate } from "react-router-dom"
+import { useContext, useState } from "react"
 import { AuthContext } from "../../context/authContext"
 function Login() {
 
+    const [inputs, setInputs] = useState({
+        username: "",
+        password: ""
+    });
+
+    const [error, setError] = useState(false);
+    const navigate = useNavigate();
+
+    const handleChange = (e) => {
+        setInputs(prev => ({ ...prev, [e.target.name]: e.target.value }))
+    }
+
     const { login } = useContext(AuthContext);
 
-    const handleLogin = () => {
-        login();
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        try {
+            await login(inputs);
+            navigate('/');
+        } catch (error) {
+            setError(error.response.data);
+        }
     };
 
     return (
@@ -24,8 +42,8 @@ function Login() {
                 <div className="right">
                     <h1>Login</h1>
                     <form>
-                        <input type="text" placeholder="Korisničko ime" />
-                        <input type="password" placeholder="Lozinka" />
+                        <input type="text" placeholder="Korisničko ime" name="username" onChange={handleChange} />
+                        <input type="password" placeholder="Lozinka" name="password" onChange={handleChange} />
                         <button onClick={handleLogin}>Prijavite se</button>
                     </form>
                 </div>
