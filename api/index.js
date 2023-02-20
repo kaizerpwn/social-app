@@ -1,6 +1,5 @@
 import express from "express";
-import cors from "cors";
-import cookieParser from "cookie-parser"
+
 
 const app = express();
 
@@ -11,10 +10,13 @@ import postRoutes from "./routes/posts.js"
 import likeRoutes from "./routes/likes.js"
 import commentRoutes from "./routes/comments.js"
 
+//>> Other libs
+import cors from "cors";
+import cookieParser from "cookie-parser"
 
 // >> Middlewares
 app.use(express.json())
-// app.use(cors())
+app.use(cors())
 app.use(cookieParser)
 
 
