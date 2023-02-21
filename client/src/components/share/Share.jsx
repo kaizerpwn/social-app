@@ -31,7 +31,6 @@ const Share = () => {
         },
         {
             onSuccess: () => {
-                // Invalidate and refetch
                 queryClient.invalidateQueries(["posts"]);
             },
         }
@@ -54,7 +53,7 @@ const Share = () => {
                         <img src={"/upload/" + currentUser.profilePic} alt="" />
                         <input
                             type="text"
-                            placeholder={`What's on your mind ${currentUser.name}?`}
+                            placeholder={`O čemu razmišljate trenutno, ${currentUser.name}?`}
                             onChange={(e) => setDesc(e.target.value)}
                             value={desc}
                         />
@@ -77,20 +76,20 @@ const Share = () => {
                         <label htmlFor="file">
                             <div className="item">
                                 <img src={Image} alt="" />
-                                <span>Add Image</span>
+                                <span>Dodaj sliku</span>
                             </div>
                         </label>
                         <div className="item">
                             <img src={Map} alt="" />
-                            <span>Add Place</span>
+                            <span>Označi mjesto</span>
                         </div>
                         <div className="item">
                             <img src={Friend} alt="" />
-                            <span>Tag Friends</span>
+                            <span>Taguj prijatelja</span>
                         </div>
                     </div>
                     <div className="right">
-                        <button onClick={handleClick}>Share</button>
+                        <button onClick={handleClick}>Podijeli</button>
                     </div>
                 </div>
             </div>
