@@ -33,7 +33,7 @@ const Post = ({ post }) => {
                     <MoreHorizIcon />
                 </div>
                 <div className="content">
-                    <p>{post.desc}</p>
+                    <p>{post.description}</p>
                     <img src={post.img} alt="" />
                 </div>
                 <div className="info">
