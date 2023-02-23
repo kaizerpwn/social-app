@@ -6,6 +6,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../context/authContext";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";
+
 const Share = () => {
     const [file, setFile] = useState(null);
     const [desc, setDesc] = useState("");
@@ -27,7 +28,7 @@ const Share = () => {
 
     const mutation = useMutation(
         (newPost) => {
-            return makeRequest.post("/posts", newPost);
+            return makeRequest.post("/posts/add", newPost);
         },
         {
             onSuccess: () => {
@@ -40,7 +41,7 @@ const Share = () => {
         e.preventDefault();
         let imgUrl = "";
         if (file) imgUrl = await upload();
-        mutation.mutate({ desc, img: imgUrl });
+        mutation.mutate({ description: desc, img: imgUrl });
         setDesc("");
         setFile(null);
     };
