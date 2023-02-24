@@ -7,7 +7,6 @@ const Update = ({ setOpenUpdate, data }) => {
     const [cover, setCover] = useState(null);
     const [profile, setProfile] = useState(null);
 
-
     const [texts, setTexts] = useState({
         name: "",
         city: "",
@@ -26,7 +25,7 @@ const Update = ({ setOpenUpdate, data }) => {
     };
 
     const handleChange = (e) => {
-        setTexts((prev) => ({ ...prev, [e.target.value]: [e.target.value] }));
+        setTexts((prev) => ({ ...prev, [e.target.name]: [e.target.value] }));
     }
 
     const queryClient = useQueryClient();
@@ -44,21 +43,24 @@ const Update = ({ setOpenUpdate, data }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        let coverUrl = data.coverPic;
-        let profileUrl = data.profilePic;
+        let coverUrl;
+        let profileUrl;
 
-        coverUrl = cover && await upload(cover)
-        profileUrl = profile && await upload(profile)
+        coverUrl = cover ? await upload(cover) : data.coverPic;
+        profileUrl = profile ? await upload(profile) : data.profilePic;
 
         mutation.mutate({ ...texts, coverPic: coverUrl, profilePic: profileUrl });
         setOpenUpdate(false);
+        setCover(null);
+        setProfile(null);
     };
 
     return (
         <div className="update">
+            Uređivanje profila
             <form action="">
-                <input type="file" />
-                <input type="file" />
+                <input type="file" onChange={e => setCover(e.target.files[0])} />
+                <input type="file" onChange={e => setProfile(e.target.files[1])} />
                 <input type="text" name="name" onChange={handleChange} />
                 <input type="text" name="city" onChange={handleChange} />
                 <input type="text" name="website" onChange={handleChange} />
