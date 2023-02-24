@@ -8,7 +8,7 @@ function Home() {
         <div className="home">
             <Stories />
             <Share />
-            <Posts />
+            <Posts userId={undefined} />
         </div>
     )
 }

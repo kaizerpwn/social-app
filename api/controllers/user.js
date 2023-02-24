@@ -1,5 +1,4 @@
 import { db } from "../db.js";
-import jwt from "jsonwebtoken"
 
 export const getUser = (req, res) => {
     const userId = req.params.userId;
@@ -10,4 +9,15 @@ export const getUser = (req, res) => {
         const { password, ...info } = data[0];
         return res.json(info);
     });
+}
+
+export const updateUser = (req, res) => {
+    const token = req.cookies.accessToken;
+    if (!token) return res.status(401).json('Not logged in!');
+
+    jwt.verify(token, "secretkey", (err, userInfo) => {
+        if (err) return res.status(403).json('Token is not valid');
+
+        const updateUserQuery = 
+    })
 }
