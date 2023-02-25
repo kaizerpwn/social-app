@@ -1,70 +1,17 @@
-# Getting Started with Create React App
+# Social App practice project made with : MySQL, React, Express & Node
+# Big thanks to [lama](https://www.youtube.com/@LamaDev) for this awesome project 💌
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Home Page
+![Screenshot_4](https://user-images.githubusercontent.com/70588174/221353583-4ca82e3d-e877-42dd-a226-b5944bc1c678.png)
 
-## Available Scripts
+# Profile Page
+![Screenshot_5](https://user-images.githubusercontent.com/70588174/221353585-c4d6b795-1076-4521-8ef0-ece4b46a2570.png)
 
-In the project directory, you can run:
+# Post, Like & Comment Feature
+![Screenshot_6](https://user-images.githubusercontent.com/70588174/221353588-482539e9-1a8e-454d-ada7-7f7f3c7c1787.png)
 
-### `npm start`
+# Profile Editing
+![Screenshot_7](https://user-images.githubusercontent.com/70588174/221353589-d46810d8-9460-4e5f-acfa-e0a6741222ca.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Dark & Light theme option
+![Screenshot_8](https://user-images.githubusercontent.com/70588174/221353682-56c93d70-812b-49cc-bac5-379e6779d933.png)
