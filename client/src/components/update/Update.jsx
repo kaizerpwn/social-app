@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./update.scss";
 import { makeRequest } from "../../axios";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
 const Update = ({ setOpenUpdate, data }) => {
     const [cover, setCover] = useState(null);
@@ -57,18 +58,94 @@ const Update = ({ setOpenUpdate, data }) => {
 
     return (
         <div className="update">
-            Uređivanje profila
-            <form action="">
-                <input type="file" onChange={e => setCover(e.target.files[0])} />
-                <input type="file" onChange={e => setProfile(e.target.files[1])} />
-                <input type="text" name="name" onChange={handleChange} />
-                <input type="text" name="city" onChange={handleChange} />
-                <input type="text" name="website" onChange={handleChange} />
-                <button onClick={handleSubmit}>Uredi</button>
-            </form>
-            <button onClick={() => setOpenUpdate(false)}>X</button>
+            <div className="wrapper">
+                <h1>Uredite svoj profil</h1>
+                <form>
+                    <div className="files">
+                        <label htmlFor="cover">
+                            <span>Pozadinska fotografija</span>
+                            <div className="imgContainer">
+                                <img
+                                    src={
+                                        cover
+                                            ? URL.createObjectURL(cover)
+                                            : "/upload/" + data.coverPic
+                                    }
+                                    alt=""
+                                />
+                                <CloudUploadIcon className="icon" />
+                            </div>
+                        </label>
+                        <input
+                            type="file"
+                            id="cover"
+                            style={{ display: "none" }}
+                            onChange={(e) => setCover(e.target.files[0])}
+                        />
+                        <label htmlFor="profile">
+                            <span>Profilna slika</span>
+                            <div className="imgContainer">
+                                <img
+                                    src={
+                                        profile
+                                            ? URL.createObjectURL(profile)
+                                            : "/upload/" + data.profilePic
+                                    }
+                                    alt=""
+                                />
+                                <CloudUploadIcon className="icon" />
+                            </div>
+                        </label>
+                        <input
+                            type="file"
+                            id="profile"
+                            style={{ display: "none" }}
+                            onChange={(e) => setProfile(e.target.files[1])}
+                        />
+                    </div>
+                    <label>Email</label>
+                    <input
+                        type="text"
+                        value={texts.email}
+                        name="email"
+                        onChange={handleChange}
+                    />
+                    <label>Lozinka</label>
+                    <input
+                        type="text"
+                        value={texts.password}
+                        name="password"
+                        onChange={handleChange}
+                    />
+                    <label>Ime</label>
+                    <input
+                        type="text"
+                        value={texts.name}
+                        name="name"
+                        onChange={handleChange}
+                    />
+                    <label>Zemlja / Grad</label>
+                    <input
+                        type="text"
+                        name="city"
+                        value={texts.city}
+                        onChange={handleChange}
+                    />
+                    <label>Web stranica</label>
+                    <input
+                        type="text"
+                        name="website"
+                        value={texts.website}
+                        onChange={handleChange}
+                    />
+                    <button onClick={handleSubmit}>Uredi</button>
+                </form>
+                <button className="close" onClick={() => setOpenUpdate(false)}>
+                    X
+                </button>
+            </div>
         </div>
-    )
+    );
 }
 
 export default Update
